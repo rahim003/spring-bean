@@ -9,6 +9,15 @@ public class App {
                 new AnnotationConfigApplicationContext(AppConfig.class);
         HelloWorld bean =
                 (HelloWorld) applicationContext.getBean("helloworld");
-        System.out.println(bean.getMessage());
+        System.out.println(bean.getMessage());;
+        HelloWorld bean1 =
+                (HelloWorld) applicationContext.getBean("helloworld");
+        System.out.println(bean.getMessage()== bean1.getMessage());
+        Cat cat= (Cat) applicationContext.getBean("myCat");
+        Cat cat1= (Cat) applicationContext.getBean("myCat");
+        System.out.println(cat==cat1);
+
+        System.out.println(cat);
+        System.out.println(cat1);
     }
 }

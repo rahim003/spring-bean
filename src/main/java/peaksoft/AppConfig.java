@@ -1,9 +1,10 @@
 package peaksoft;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 
 @Configuration
+@ComponentScan("peaksoft")
+@PropertySource("application.properties")
 public class AppConfig {
     @Bean(name="helloworld")
     public HelloWorld getHelloWorld() {
@@ -11,4 +12,10 @@ public class AppConfig {
         helloWorld.setMessage("Hello World!");
         return helloWorld;
     }
+    @Bean(name = "myCat")
+    @Scope("prototype")
+    public Cat cat(){
+        return new Cat();
+    }
+
 }
